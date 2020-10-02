@@ -156,7 +156,9 @@ $(document).ready(function(){
         function printResult(datafirefox) {
             //var data = $.HTMLparse(data)
             var user_firefox = $(datafirefox).find(".AddonMeta-overallRating > .MetadataCard-list > .MetadataCard-content:eq(0)").text();
-
+            const regex = /(\d)\s+(?=\d)/g;
+            const subst = `$1`;
+            const user_opera = user_opera.replace(regex, subst);
             var user_in_total = parseInt(user_opera, 10) + parseInt(user_firefox, 10)
 
             var total_user = document.getElementById("total-user")
